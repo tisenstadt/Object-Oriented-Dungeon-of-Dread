@@ -96,8 +96,10 @@ marked 'NO, OPEN ME! He's a trap.' What do you do?"
 						end
 				elsif look == "second" && controller
 					puts "No need to look in there again. You already have the stake."
-				elsif look.include? "left" 
+				elsif look == "left" and !@@inventory.include? "silver key" 
 					return 'room2'
+				elsif look == "left" and @@inventory.include? "silver key"
+					puts "Your honeymoon with the mermaid will have to wait. No need to go back in there again."
 				elsif look.include? "right"
 					if @@inventory.include? "silver key"
 						puts "Turning the silver key in the keyhole, the door creaks open."
